@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lumina Clinics</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300&family=Jost:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ouro:#B8935E;          /* cor da marca (marca-logótipo) */
+    --ouro-escuro:#9C7A47;
+    --tinta:#2A211B;         /* cor do texto do logótipo */
+    --marfim:#FBF8F3;
+    --linha:#DDD3C4;
+    --serif:"Cormorant Garamond","Playfair Display",Georgia,"Times New Roman",serif;
+    --sans:"Jost","Montserrat",system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  }
+  * { box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body { margin:0; background:var(--marfim); color:var(--tinta); font-family:var(--sans); font-weight:300; font-size:1.0625rem; line-height:1.75; -webkit-font-smoothing:antialiased; }
+  header { background:#fff; border-bottom:1px solid var(--linha); text-align:center; padding:3.5rem 1.25rem 3rem; }
+  .logo { display:block; width:min(22rem,80%); height:auto; margin:0 auto 1.75rem; }
+  .assinatura { font-family:var(--serif); font-weight:300; font-style:italic; font-size:1.35rem; letter-spacing:.02em; margin:0 0 2.25rem; }
+  .botoes { display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; }
+  .botao { display:inline-block; padding:.95rem 2.1rem; font-family:var(--sans); font-weight:400; font-size:.78rem; letter-spacing:.22em; text-transform:uppercase; text-decoration:none; color:var(--tinta); border:1px solid var(--ouro); transition:background .2s,color .2s; }
+  .botao.principal { background:var(--ouro); color:#fff; }
+  .botao:hover { background:var(--ouro-escuro); border-color:var(--ouro-escuro); color:#fff; }
+  main { max-width:40rem; margin:0 auto; padding:0 1.25rem 6rem; }
+  section { padding:5rem 0 1rem; }
+  section + section { border-top:1px solid var(--linha); margin-top:4rem; }
+  .etiqueta { display:block; font-size:.72rem; font-weight:400; letter-spacing:.32em; text-transform:uppercase; color:var(--ouro-escuro); margin-bottom:1rem; }
+  h2 { font-family:var(--serif); font-weight:300; font-size:2.4rem; line-height:1.2; margin:0 0 1rem; }
+  .intro { margin:0 0 2.5rem; max-width:32rem; }
+  .grupo { margin:0 0 1.9rem; }
+  .duas { display:grid; grid-template-columns:1fr; gap:0 2rem; }
+  label { display:block; font-size:.72rem; font-weight:400; letter-spacing:.2em; text-transform:uppercase; margin-bottom:.15rem; }
+  .ajuda { display:block; margin-top:.3rem; font-size:.85rem; letter-spacing:0; text-transform:none; font-weight:300; opacity:.7; }
+  input[type=text], input[type=email], input[type=tel], input[type=number], select, textarea {
+    width:100%; padding:.55rem 0; border:0; border-bottom:1px solid var(--tinta); border-radius:0; background:transparent; color:var(--tinta);
+    font-family:var(--sans); font-weight:300; font-size:1.05rem; outline:none; appearance:none; -webkit-appearance:none; }
+  textarea { resize:vertical; min-height:7rem; border:1px solid var(--linha); border-bottom:1px solid var(--tinta); padding:.7rem; }
+  select { background-image:linear-gradient(45deg,transparent 50%,var(--tinta) 50%),linear-gradient(135deg,var(--tinta) 50%,transparent 50%); background-position:calc(100% - 12px) 55%,calc(100% - 7px) 55%; background-size:5px 5px,5px 5px; background-repeat:no-repeat; padding-right:1.5rem; }
+  input:focus, select:focus, textarea:focus { border-bottom-color:var(--ouro); box-shadow:0 1px 0 0 var(--ouro); }
+  .caixa { display:flex; gap:.9rem; align-items:flex-start; margin:2.2rem 0 0; }
+  .caixa input { margin-top:.45rem; accent-color:var(--ouro); flex:none; }
+  .caixa label { margin:0; font-size:.9rem; letter-spacing:0; text-transform:none; font-weight:300; }
+  button[type=submit] { margin-top:2.5rem; padding:1rem 2.4rem; border:1px solid var(--ouro); background:var(--ouro); color:#fff; font-family:var(--sans); font-weight:400; font-size:.78rem; letter-spacing:.22em; text-transform:uppercase; cursor:pointer; transition:background .2s; }
+  button[type=submit]:hover { background:var(--ouro-escuro); border-color:var(--ouro-escuro); }
+  footer { text-align:center; padding:0 1.25rem 4rem; }
+  footer img { width:3.2rem; height:auto; opacity:.9; }
+  /* Campo-armadilha (honeypot): fora do ecrã, sem display:none */
+  .campo-extra { position:absolute; left:-10000px; top:auto; width:1px; height:1px; overflow:hidden; }
+  @media (min-width:40rem) { .duas { grid-template-columns:1fr 1fr; } header { padding-top:4.5rem; } }
+</style>
+</head>
+<body>
+
+<header>
+  <img class="logo" src="assets/lumina-clinics-logo.png" alt="Lumina Clinics">
+  <p class="assinatura">Depilação a laser e rejuvenescimento, em rede.</p>
+  <div class="botoes">
+    <a class="botao principal" href="#candidatura">Quero ser franquiado</a>
+    <a class="botao" href="#apoio">Já sou cliente</a>
+  </div>
+</header>
+
+<main>
+
+  <!-- ===== Candidatura (Web-to-Lead) ===== -->
+  <section id="candidatura">
+    <span class="etiqueta">Candidatura</span>
+    <h2>Abra uma Lumina Clinics</h2>
+    <p class="intro">Deixe-nos os seus dados. A nossa equipa de franquias agenda uma reunião consigo para conhecer o seu projeto.</p>
+
+    <form id="form-candidatura" action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8" method="POST" accept-charset="UTF-8">
+      <input type="hidden" name="oid" value="00Daj000015FMo1">
+      <input type="hidden" name="retURL" class="ret-url" value="">
+      <input type="hidden" name="lead_source" value="Web">
+
+      <div class="duas">
+      <div class="grupo">
+        <label for="first_name">Nome próprio</label>
+        <input id="first_name" name="first_name" type="text" maxlength="40" autocomplete="given-name">
+      </div>
+      <div class="grupo">
+        <label for="last_name">Apelido *</label>
+        <input id="last_name" name="last_name" type="text" maxlength="80" required autocomplete="family-name">
+      </div>
+      </div>
+      <div class="grupo">
+        <label for="email">Email *</label>
+        <input id="email" name="email" type="email" maxlength="80" required autocomplete="email">
+      </div>
+      <div class="duas">
+      <div class="grupo">
+        <label for="phone">Telefone</label>
+        <input id="phone" name="phone" type="tel" maxlength="40" autocomplete="tel">
+      </div>
+      <div class="grupo">
+        <label for="city">Cidade</label>
+        <input id="city" name="city" type="text" maxlength="40" autocomplete="address-level2">
+      </div>
+      </div>
+      <div class="grupo">
+        <label for="company">Empresa *<span class="ajuda">Se ainda não tem empresa constituída, indique o seu nome próprio.</span></label>
+        <input id="company" name="company" type="text" maxlength="40" required>
+      </div>
+      <div class="grupo">
+        <label for="capital">Capital próprio disponível (€) *<span class="ajuda">Valor que declara ter disponível para o investimento. Não é validado nesta fase.</span></label>
+        <input id="capital" name="00Naj00005bA3TE" type="number" min="0" step="1" required inputmode="numeric">
+      </div>
+
+      <div class="caixa">
+        <input id="politica" name="00Naj00005jtObV" type="checkbox" value="1" required>
+        <label for="politica">Aceito o tratamento dos dados que indiquei, para efeitos de análise da minha candidatura. *</label>
+      </div>
+
+      <!-- Honeypot: sem atributo name (não é enviado) -->
+      <div class="campo-extra" aria-hidden="true">
+        <label for="hp-candidatura">Não preencher</label>
+        <input id="hp-candidatura" type="text" tabindex="-1" autocomplete="off" value="">
+      </div>
+
+      <button type="submit">Enviar candidatura</button>
+    </form>
+  </section>
+
+  <!-- ===== Pedido de apoio (Web-to-Case) ===== -->
+  <section id="apoio">
+    <span class="etiqueta">Pedido de apoio</span>
+    <h2>Já é nosso cliente?</h2>
+    <p class="intro">Diga-nos do que precisa e encaminhamos o seu pedido à pessoa certa.</p>
+
+    <form id="form-apoio" action="https://webto.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8" method="POST" accept-charset="UTF-8">
+      <input type="hidden" name="orgid" value="00Daj000015FMo1">
+      <input type="hidden" name="retURL" class="ret-url" value="">
+      <input type="hidden" name="origin" value="Web">
+      <input type="hidden" name="recordType" id="recordType" value="">
+
+      <div class="duas">
+      <div class="grupo">
+        <label for="name">Nome *</label>
+        <input id="name" name="name" type="text" maxlength="80" required autocomplete="name">
+      </div>
+      <div class="grupo">
+        <label for="email-apoio">Email *</label>
+        <input id="email-apoio" name="email" type="email" maxlength="80" required autocomplete="email">
+      </div>
+      </div>
+      <div class="grupo">
+        <label for="subject">Assunto *</label>
+        <input id="subject" name="subject" type="text" maxlength="80" required>
+      </div>
+      <div class="grupo">
+        <label for="tipo">Tipo de pedido *</label>
+        <select id="tipo" name="type" required>
+          <option value="">Escolha…</option>
+          <option value="Suporte_Tecnico">Suporte Técnico</option>
+          <option value="Pedido_Consultoria">Pedido de Consultoria</option>
+        </select>
+      </div>
+      <div class="grupo">
+        <label for="description">Descrição *</label>
+        <textarea id="description" name="description" rows="5" required></textarea>
+      </div>
+
+      <!-- Honeypot: sem atributo name (não é enviado) -->
+      <div class="campo-extra" aria-hidden="true">
+        <label for="hp-apoio">Não preencher</label>
+        <input id="hp-apoio" type="text" tabindex="-1" autocomplete="off" value="">
+      </div>
+
+      <button type="submit">Enviar pedido</button>
+    </form>
+  </section>
+
+</main>
+
+<footer>
+  <img src="assets/lumina-clinics-marca.png" alt="">
+</footer>
+
+<script>
+  // Páginas de agradecimento: a retURL tem de ser um endereço http(s) público.
+  // Por defeito usa obrigado.html ao lado desta página; para outro sítio, defina RET_URL.
+  var RET_URL = "";
+  var retUrl = RET_URL || new URL("obrigado.html", window.location.href).href;
+  document.querySelectorAll(".ret-url").forEach(function (el) { el.value = retUrl; });
+
+  // Record Type do Case, de acordo com o tipo escolhido (o Type é então preenchido pelo Flow do Case).
+  var RECORD_TYPES = {
+    "Suporte_Tecnico": "012aj00000EZJhGAAX",
+    "Pedido_Consultoria": "012aj00000EZJhFAAX"
+  };
+  var tipo = document.getElementById("tipo");
+  var recordType = document.getElementById("recordType");
+  function sincronizarTipo() { recordType.value = RECORD_TYPES[tipo.value] || ""; }
+  tipo.addEventListener("change", sincronizarTipo);
+
+  // Honeypot: se vier preenchido, bloqueia o envio antes de submeter.
+  function protegerComHoneypot(formId, honeypotId) {
+    var form = document.getElementById(formId);
+    var hp = document.getElementById(honeypotId);
+    form.addEventListener("submit", function (ev) {
+      if (hp.value.trim() !== "") { ev.preventDefault(); return false; }
+      if (formId === "form-apoio") { sincronizarTipo(); }
+    });
+  }
+  protegerComHoneypot("form-candidatura", "hp-candidatura");
+  protegerComHoneypot("form-apoio", "hp-apoio");
+</script>
+</body>
+</html>
